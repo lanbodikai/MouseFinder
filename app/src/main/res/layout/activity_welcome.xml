@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- App Icon -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="App Logo" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="32dp"/>
+
+    <!-- New user button -->
+    <Button
+        android:id="@+id/btnNewUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I'm New!"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Existing user button -->
+    <Button
+        android:id="@+id/btnExistingUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I Already Have an Account"/>
+
+</LinearLayout>
