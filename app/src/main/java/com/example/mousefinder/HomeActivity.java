@@ -1,8 +1,12 @@
 package com.example.mousefinder;
 
 import android.os.Bundle;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import com.example.mousefinder.fragments.HomeFragment;
+import com.example.mousefinder.fragments.MouseDatabaseFragment;
+import com.example.mousefinder.fragments.MouseRatingFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     @Override
@@ -10,8 +14,32 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        String username = getIntent().getStringExtra("username");
-        TextView tvWelcome = findViewById(R.id.tvWelcome);
-        tvWelcome.setText("Welcome, " + username + "!");
+        BottomNavigationView nav = findViewById(R.id.bottom_nav);
+        // Default fragment
+        loadFragment(new HomeFragment());
+
+        nav.setOnItemSelectedListener(item -> {
+            Fragment selected;
+            switch (item.getItemId()) {
+                case R.id.nav_database:
+                    selected = new MouseDatabaseFragment();
+                    break;
+                case R.id.nav_rating:
+                    selected = new MouseRatingFragment();
+                    break;
+                default:
+                    selected = new HomeFragment();
+            }
+            return loadFragment(selected);
+        });
+    }
+
+    private boolean loadFragment(Fragment frag) {
+        if (frag == null) return false;
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.home_fragment_container, frag)
+                .commit();
+        return true;
     }
 }

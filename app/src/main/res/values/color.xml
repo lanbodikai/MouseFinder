@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary brand color -->
+    <color name="purple_500">#6200EE</color>
+    <!-- Primary variant for darker surfaces -->
+    <color name="purple_700">#3700B3</color>
+    <!-- Accent/secondary color -->
+    <color name="teal_200">#03DAC5</color>
+
+    <!-- On‐colours (text/icons on top of primary/secondary) -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
